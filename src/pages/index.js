@@ -30,17 +30,18 @@ const Index = () =>{
 
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>🎬 Movie Search</h1>
+      <h1 className="text-3xl mb-2 bg-green-800 rounded-lg text-white">🎬 Movie Search</h1>
       
       <input
         type="text"
         placeholder="Search for a movie..."
+        
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="p-2 w-[60%] mr-2"
+        className="p-2 w-[60%] mr-2 border border-black rounded-xl"
       />
       
-      <button onClick={searchMovies} className="p-2">
+      <button onClick={searchMovies} className="p-2 text-white rounded-xl" style={{background:"blue"}}>
         Search
       </button>
 
