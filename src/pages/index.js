@@ -32,18 +32,29 @@ const Index = () =>{
     <div style={{ textAlign: "center", padding: "20px" }}>
       <h1 className="text-3xl mb-2 bg-green-800 rounded-lg text-white">🎬 Movie Search</h1>
       
-      <input
-        type="text"
-        placeholder="Search for a movie..."
-        
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="p-2 w-[60%] mr-2 border border-black rounded-xl"
-      />
-      
-      <button onClick={searchMovies} className="p-2 text-white rounded-xl" style={{background:"blue"}}>
-        Search
-      </button>
+      <form 
+  onSubmit={(e) => {
+    e.preventDefault(); // Prevents page reload
+    searchMovies();
+  }}
+  className="flex items-center"
+>
+  <input
+    type="text"
+    placeholder="Search for a movie..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className="p-2 w-[60%] mr-2 border border-black rounded-xl"
+  />
+  
+  <button 
+    type="submit" 
+    className="p-2 text-white rounded-xl" 
+    style={{ background: "blue" }}
+  >
+    Search
+  </button>
+</form>
 
       {loading && <p>Loading...</p>}
 
@@ -69,6 +80,7 @@ const Index = () =>{
                   <a href={`/movie-detail/${movie?.Title?.toLowerCase()?.replace(/[^a-zA-Z0-9 ]/g, '-').replace(/\s+/g, '-').replace(/-+/g, '-')?.replace(/-$/, '')?.replace(/-$/, '')+"-"+movie?.imdbID}`}>
                   <img
                   src="/assets/img/link.svg"
+                  className="w-5 h-5"
                   />
                   </a>
                 </td>
