@@ -22,6 +22,8 @@ const Index = ({movieData}) =>{
       { label: "Actors", value: movieData?.Actors },
       { label: "Plot", value: movieData?.Plot },
       { label: "IMDB Rating", value: movieData?.imdbRating },
+      { label: "Release Date", value: movieData?.Released },
+      { label: "Total Time", value: movieData?.Runtime },
     ].map((row, index) => (
       <tr key={index}>
         <td
@@ -31,7 +33,7 @@ const Index = ({movieData}) =>{
             border: "2px solid black",
           }}
         >
-          {row.label}:
+          {row?.label}:
         </td>
         <td
           style={{
@@ -39,7 +41,7 @@ const Index = ({movieData}) =>{
             border: "2px solid black",
           }}
         >
-          {row.value}
+          {row?.value}
         </td>
       </tr>
     ))}
