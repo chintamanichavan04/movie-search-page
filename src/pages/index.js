@@ -76,7 +76,7 @@ const Index = () =>{
           </thead>
           <tbody>
             {movies?.map((movie) => (
-              <tr key={movie?.imdbID} onClick={()=>router.push(`/movie-detail/${movie?.Title?.toLowerCase()?.replace(/[^a-zA-Z0-9 ]/g, '-').replace(/\s+/g, '-').replace(/-+/g, '-')?.replace(/-$/, '')?.replace(/-$/, '')+"-"+movie?.imdbID}`)} style={{cursor:"pointer"}}>
+              <tr key={movie?.imdbID} onClick={()=>router.push(`/movie-detail/${movie?.Title?.toLowerCase()?.replace(/[^a-zA-Z0-9 ]/g, '-').replace(/\s+/g, '-').replace(/-+/g, '-')?.replace(/-$/, '')?.replace(/-$/, '')+"-"+movie?.imdbID}`)} style={{cursor:"pointer", minHeight:"100px"}} className="border-b border-b-black">
                 <td style={{ padding: "10px" }}>
                   <img src={movie?.Poster !== "N/A" ? movie?.Poster : "/no-image.jpg"} alt={movie?.Title} width="50" />
                 </td>
